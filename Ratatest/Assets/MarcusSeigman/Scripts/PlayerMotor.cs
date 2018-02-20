@@ -29,6 +29,24 @@ public class PlayerMotor : MonoBehaviour {
     public Vector3 smallSize;
     public Vector3 largeSize;
 
+
+    //Sound Clips
+    public AudioClip Squeak1;
+    public AudioClip Squeak2;
+    public AudioClip Death;
+    private AudioSource PlayerAudio;
+
+
+    //Animator
+    private Animator RatAnim;
+
+
+    private void Awake()
+    {
+        RatAnim = GetComponent<Animator>();
+      PlayerAudio = GetComponent<AudioSource>();
+    }
+
     // Use this for initialization
     void Start () {
 
@@ -58,21 +76,6 @@ public class PlayerMotor : MonoBehaviour {
             GameManager.Instance.UpdateModifier(speed - originalSpeed);
         }
 
-       if(MobileInput.Instance.SwipeLeft || MobileInput.Instance.SwipeRight)
-        {
-            if (transform.localScale == smallSize)
-            {
-                print("change to big");
-                transform.localScale = largeSize;
-                jumpForce = 7.2f;
-            }
-            else if (transform.localScale == largeSize)
-            {
-                print("change to small");
-                transform.localScale = smallSize;
-                jumpForce = 5.2f;
-            }
-        }
         
         //Gather the inputs for lanes
         // move left
@@ -105,6 +108,8 @@ public class PlayerMotor : MonoBehaviour {
             {
 
                 //jump
+                PlayerAudio.PlayOneShot(Squeak1);
+                RatAnim.SetTrigger("RatJump");
                 verticalVelocity = jumpForce;
             }
         }
@@ -124,6 +129,7 @@ public class PlayerMotor : MonoBehaviour {
 
         if (isRunning)
         {
+            RatAnim.SetTrigger("RatBeginPlay");
             moveVector.z = speed;
         }
 
@@ -140,18 +146,18 @@ public class PlayerMotor : MonoBehaviour {
         }
 
         //Size Changing controls
-        if(Input.GetKeyDown(KeyCode.W))
+        if(Input.GetKeyDown(KeyCode.W) || MobileInput.Instance.SwipeLeft || MobileInput.Instance.SwipeRight)
         {
 
             if (transform.localScale == smallSize)
             {
-             
+                PlayerAudio.PlayOneShot(Squeak2);
                 transform.localScale = largeSize;
                 jumpForce = 7.2f;
             }
             else if (transform.localScale == largeSize)
             {
-                
+                PlayerAudio.PlayOneShot(Squeak2);
                 transform.localScale = smallSize;
                 jumpForce = 5.2f;
             }
@@ -181,6 +187,8 @@ public class PlayerMotor : MonoBehaviour {
     private void Crash()
     {
         print("is dead");
+        RatAnim.SetTrigger("RatDead");
+        PlayerAudio.PlayOneShot(Death);
         isRunning = false;
         GameManager.Instance.OnDeath();
     }
