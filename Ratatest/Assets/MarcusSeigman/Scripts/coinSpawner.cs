@@ -29,6 +29,7 @@ public class coinSpawner : MonoBehaviour {
             for (int i = 0; i < maxCoin; i++)
             {
                 coins[i].SetActive(true);
+                coins[i].GetComponent<MeshRenderer>().enabled = true;
             }
         else
         {
@@ -37,6 +38,7 @@ public class coinSpawner : MonoBehaviour {
             {
                 int k = Random.Range(0, maxCoin);
                     coins[k].SetActive(true);
+                coins[k].GetComponent<MeshRenderer>().enabled = true;
             }
         }
     }

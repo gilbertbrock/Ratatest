@@ -283,11 +283,23 @@
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>Library\UnityAssemblies\UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
-    <Reference Include="ProBuilderCore-Unity5">
-      <HintPath>Assets\Tools\ProCore\ProBuilder\Classes\ProBuilderCore-Unity5.dll</HintPath>
+    <Reference Include="UnityFbxPrefab">
+      <HintPath>Assets\Tools\FbxExporter\UnityFbxPrefab.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityFbxExporterEditor">
+      <HintPath>Assets\Tools\FbxExporter\Editor\UnityFbxExporterEditor.dll</HintPath>
     </Reference>
     <Reference Include="UnityFbxSdk">
       <HintPath>Assets\Tools\FbxExporter\Editor\FbxSdk\Plugins\UnityFbxSdk.dll</HintPath>
+    </Reference>
+    <Reference Include="ProBuilderCore-Unity5">
+      <HintPath>Assets\Tools\ProCore\ProBuilder\Classes\ProBuilderCore-Unity5.dll</HintPath>
+    </Reference>
+    <Reference Include="ProBuilderMeshOps-Unity5">
+      <HintPath>Assets\Tools\ProCore\ProBuilder\Classes\ProBuilderMeshOps-Unity5.dll</HintPath>
+    </Reference>
+    <Reference Include="KdTreeLib">
+      <HintPath>Assets\Tools\ProCore\ProBuilder\Classes\ClassesLib\KdTreeLib.dll</HintPath>
     </Reference>
     <Reference Include="pb_Stl">
       <HintPath>Assets\Tools\ProCore\ProBuilder\Classes\ClassesLib\pb_Stl.dll</HintPath>
@@ -297,18 +309,6 @@
     </Reference>
     <Reference Include="ProBuilderEditor-Unity5">
       <HintPath>Assets\Tools\ProCore\ProBuilder\Editor\ProBuilderEditor-Unity5.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityFbxPrefab">
-      <HintPath>Assets\Tools\FbxExporter\UnityFbxPrefab.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityFbxExporterEditor">
-      <HintPath>Assets\Tools\FbxExporter\Editor\UnityFbxExporterEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="ProBuilderMeshOps-Unity5">
-      <HintPath>Assets\Tools\ProCore\ProBuilder\Classes\ProBuilderMeshOps-Unity5.dll</HintPath>
-    </Reference>
-    <Reference Include="KdTreeLib">
-      <HintPath>Assets\Tools\ProCore\ProBuilder\Classes\ClassesLib\KdTreeLib.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -383,6 +383,7 @@
     <Compile Include="Assets\Tools\ProCore\ProBuilder\Editor\pb_ScenePostProcessor.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Chemistry glassware\Alpha-Glossy -Glass.shader" />
     <None Include="Assets\SCRAPS_Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
     <None Include="Assets\SCRAPS_INTERNAL\Effects\Projectors\Guidelines.txt" />
     <None Include="Assets\SCRAPS_INTERNAL\Effects\Projectors\Shaders\ProjectorLight.shader" />

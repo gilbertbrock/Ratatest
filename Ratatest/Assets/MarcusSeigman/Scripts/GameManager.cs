@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour {
     public Animator deathMenuAnim;
     public Text deadScoreText, deadCoinText;
 
+    public Animator mainMenuAnim;
+
     public Text hiscoreText;
     // Use this for initialization
     private void Awake()
@@ -31,6 +33,7 @@ public class GameManager : MonoBehaviour {
         scoreText.text = "Score: " + score.ToString("0");
         motor = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMotor>();
         hiscoreText.text = "High Score: " + PlayerPrefs.GetInt("Hiscore").ToString("0");
+        
      
     }
 
@@ -42,6 +45,7 @@ public class GameManager : MonoBehaviour {
             motor.StartRunning();
             FindObjectOfType<cameraMotor>().isMoving = true;
             gameCanvas.SetTrigger("Show");
+            mainMenuAnim.SetTrigger("BeginPlay");
         }
 
         if(isGameStarted && !isDead)

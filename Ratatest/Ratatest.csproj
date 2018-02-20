@@ -421,6 +421,7 @@
     <Compile Include="Assets\Tools\ProCore\ProBuilder\API Examples\Vertex Colors\HighlightNearestFace.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Chemistry glassware\Alpha-Glossy -Glass.shader" />
     <None Include="Assets\SCRAPS_Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
     <None Include="Assets\SCRAPS_INTERNAL\Effects\Projectors\Guidelines.txt" />
     <None Include="Assets\SCRAPS_INTERNAL\Effects\Projectors\Shaders\ProjectorLight.shader" />
