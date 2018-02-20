@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 114834309672990960}
   - component: {fileID: 65780050683313868}
   - component: {fileID: 82111292744391602}
+  - component: {fileID: 114255340860619402}
   m_Layer: 0
   m_Name: Cheese (2)
   m_TagString: Untagged
@@ -194,6 +195,7 @@ GameObject:
   - component: {fileID: 114374455549568040}
   - component: {fileID: 65801852627638084}
   - component: {fileID: 82757311160470158}
+  - component: {fileID: 114011178509628370}
   m_Layer: 0
   m_Name: Cheese (4)
   m_TagString: Untagged
@@ -286,6 +288,7 @@ GameObject:
   - component: {fileID: 114206213187435296}
   - component: {fileID: 65677141446014568}
   - component: {fileID: 82521459168899318}
+  - component: {fileID: 114437887777816964}
   m_Layer: 0
   m_Name: Cheese
   m_TagString: Untagged
@@ -308,6 +311,7 @@ GameObject:
   - component: {fileID: 114569847615823918}
   - component: {fileID: 65162741846078142}
   - component: {fileID: 82457641329241144}
+  - component: {fileID: 114563484665434526}
   m_Layer: 0
   m_Name: Cheese (1)
   m_TagString: Untagged
@@ -346,6 +350,7 @@ GameObject:
   - component: {fileID: 114090788037846716}
   - component: {fileID: 65350710812527694}
   - component: {fileID: 82416608329706982}
+  - component: {fileID: 114860028392157690}
   m_Layer: 0
   m_Name: Cheese (3)
   m_TagString: Untagged
@@ -1942,6 +1947,21 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114011178509628370
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1418695294854580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 1
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
 --- !u!114 &114056323764335602
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1985,6 +2005,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectionNoise: {fileID: 8300000, guid: 72c5d5b58b5d8484bba51ae3658360a4, type: 3}
+--- !u!114 &114255340860619402
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1330675629182320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 1
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
 --- !u!114 &114374455549568040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2010,6 +2045,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 6
   visualIndex: 0
+--- !u!114 &114437887777816964
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1558135367148066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 1
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
 --- !u!114 &114561106613064014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2024,6 +2074,21 @@ MonoBehaviour:
   maxCoin: 5
   chanceToSpawn: 0.5
   forceSpawnAll: 0
+--- !u!114 &114563484665434526
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1597120066196162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 1
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
 --- !u!114 &114569847615823918
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2063,6 +2128,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectionNoise: {fileID: 8300000, guid: 72c5d5b58b5d8484bba51ae3658360a4, type: 3}
+--- !u!114 &114860028392157690
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636140891766662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 1
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
 --- !u!198 &198033475674232792
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -2123,7 +2203,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1878103007
+  randomSeed: -2010908610
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5484,7 +5564,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 582567114
+  randomSeed: 1360652359
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -8845,7 +8925,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -991407572
+  randomSeed: -1360076381
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -12206,7 +12286,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 478564973
+  randomSeed: -1714836247
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -15567,7 +15647,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1046481955
+  randomSeed: 842956171
   InitialModule:
     serializedVersion: 3
     enabled: 1
