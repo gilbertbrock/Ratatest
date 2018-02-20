@@ -40,11 +40,14 @@ public class PlayerMotor : MonoBehaviour {
     //Animator
     private Animator RatAnim;
 
+    public GameObject RunningSmoke;
+
 
     private void Awake()
     {
         RatAnim = GetComponent<Animator>();
       PlayerAudio = GetComponent<AudioSource>();
+        RunningSmoke.SetActive(false);
     }
 
     // Use this for initialization
@@ -103,8 +106,9 @@ public class PlayerMotor : MonoBehaviour {
         if(IsGrounded())//if grounded
         {
             verticalVelocity = -0.1f;
-
-            if(Input.GetKeyDown(KeyCode.Space) || MobileInput.Instance.SwipeUp)
+            RatAnim.SetTrigger("RatBeginPlay");
+            RunningSmoke.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.Space) || MobileInput.Instance.SwipeUp)
             {
 
                 //jump
@@ -115,10 +119,11 @@ public class PlayerMotor : MonoBehaviour {
         }
         else
         {
+            RunningSmoke.SetActive(false);
             verticalVelocity -= (gravity * Time.deltaTime);
-
+            RatAnim.ResetTrigger("RatBeginPlay");
             //fast falling mechanic
-            if(Input.GetKeyDown(KeyCode.S) || MobileInput.Instance.SwipeDown)
+            if (Input.GetKeyDown(KeyCode.S) || MobileInput.Instance.SwipeDown)
             {
                 verticalVelocity = -jumpForce;
             }
@@ -129,7 +134,7 @@ public class PlayerMotor : MonoBehaviour {
 
         if (isRunning)
         {
-            RatAnim.SetTrigger("RatBeginPlay");
+            
             moveVector.z = speed;
         }
 
@@ -186,7 +191,8 @@ public class PlayerMotor : MonoBehaviour {
 
     private void Crash()
     {
-        print("is dead");
+        
+        RunningSmoke.SetActive(false);
         RatAnim.SetTrigger("RatDead");
         PlayerAudio.PlayOneShot(Death);
         isRunning = false;
