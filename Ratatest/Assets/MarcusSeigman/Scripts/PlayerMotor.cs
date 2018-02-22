@@ -16,7 +16,7 @@ public class PlayerMotor : MonoBehaviour {
     private float verticalVelocity;
 
     //SpeedMoifier;
-    private float originalSpeed = 7.0f;
+    public float originalSpeed = 7.0f;
     public float speed;
     public float maxSpeed = 21.0f;
     private float speedIncreaseLastTick;
@@ -177,6 +177,7 @@ public class PlayerMotor : MonoBehaviour {
 
     private bool IsGrounded()
     {
+        bool Gr = false;
         Ray groundRay = new Ray(
             new Vector3( 
                 controller.bounds.center.x,
@@ -184,8 +185,16 @@ public class PlayerMotor : MonoBehaviour {
                 controller.bounds.center.z),
              Vector3.down);
         Debug.DrawRay(groundRay.origin, groundRay.direction, Color.green, 1.0f);
+        RaycastHit hit;
+        if (Physics.Raycast(groundRay, out hit, 0.12f))
+        {
+            if (hit.collider.tag == "Ground")
+                Gr = true;
+            else
+                Gr = false;
+        }
 
-        return (Physics.Raycast(groundRay, 0.12f));
+        return Gr;
         
     }
 
