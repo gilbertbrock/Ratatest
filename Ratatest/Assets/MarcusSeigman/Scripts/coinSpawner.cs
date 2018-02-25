@@ -38,7 +38,7 @@ public class coinSpawner : MonoBehaviour {
             {
                 int k = Random.Range(0, maxCoin);
                     coins[k].SetActive(true);
-                coins[k].GetComponent<MeshRenderer>().enabled = true;
+                coins[k].GetComponentInChildren<Transform>().gameObject.SetActive(true);
             }
         }
     }

@@ -14,7 +14,12 @@ public class PlayerMotor : MonoBehaviour {
     public float jumpForce = 4.0f;
     public float gravity = 12.0f;
     private float verticalVelocity;
-
+    private float jumpHeight;
+    private float jumpAdditive;
+    public float smallMaxJump;
+    public float bigMaxJump;
+    private float originalYpos;
+  
     //SpeedMoifier;
     public float originalSpeed = 7.0f;
     public float speed;
@@ -22,7 +27,7 @@ public class PlayerMotor : MonoBehaviour {
     private float speedIncreaseLastTick;
     public float speedIncreaseTime;
     public float speedIncreaseAmount;
-
+    
     private int desiredLane = 1; // 0 left, 1 middle, 2 right.
     
     //Size Change
@@ -75,6 +80,7 @@ public class PlayerMotor : MonoBehaviour {
             if (speed < maxSpeed)
             {
                 speed += speedIncreaseAmount;
+                jumpAdditive += speedIncreaseAmount;
             }
             GameManager.Instance.UpdateModifier(speed - originalSpeed);
         }
@@ -98,34 +104,57 @@ public class PlayerMotor : MonoBehaviour {
 
         //Calculate move delta
         Vector3 moveVector = Vector3.zero;
-        
+
         //Moves the character forward
         //moveVector.x = (targetPosition - transform.position).normalized.x * speed;
-
+        
         //Caculate Y gravity
-        if(IsGrounded())//if grounded
+        if (IsGrounded())//if grounded
         {
             verticalVelocity = -0.1f;
             RatAnim.SetTrigger("RatBeginPlay");
             RunningSmoke.SetActive(true);
             if (Input.GetKeyDown(KeyCode.Space) || MobileInput.Instance.SwipeUp)
             {
+                originalYpos = transform.position.y;
+                if (transform.localScale == smallSize)
+                {
+                    jumpHeight = smallMaxJump;
 
+                }
+                else if (transform.localScale == largeSize)
+                {
+                    jumpHeight = bigMaxJump;
+                }
                 //jump
                 PlayerAudio.PlayOneShot(Squeak1);
                 RatAnim.SetTrigger("RatJump");
-                verticalVelocity = jumpForce;
+                verticalVelocity = jumpForce + jumpAdditive;
+                //set height based on size.
+                //should be same as movement, but in the upward vector, until height is reached. 
+                //so maybe set a bool, when swiping up, if height is reached, set bool back.
             }
         }
         else
         {
-            RunningSmoke.SetActive(false);
-            verticalVelocity -= (gravity * Time.deltaTime);
-            RatAnim.ResetTrigger("RatBeginPlay");
-            //fast falling mechanic
-            if (Input.GetKeyDown(KeyCode.S) || MobileInput.Instance.SwipeDown)
+
+            
+            
+            if (transform.position.y <  originalYpos+jumpHeight)
             {
-                verticalVelocity = -jumpForce;
+                RunningSmoke.SetActive(false);
+                verticalVelocity -= (gravity * Time.deltaTime);
+                RatAnim.ResetTrigger("RatBeginPlay");
+                //fast falling mechanic
+                if (Input.GetKeyDown(KeyCode.S) || MobileInput.Instance.SwipeDown)
+                {
+                verticalVelocity = -(jumpForce += jumpAdditive);
+                }
+            }
+           else
+            {
+                transform.position = new Vector3(transform.position.x, originalYpos+ jumpHeight - .01f, transform.position.z);
+                verticalVelocity = -.01f;
             }
         }
 
@@ -139,7 +168,7 @@ public class PlayerMotor : MonoBehaviour {
         }
 
         //Move Character
-        controller.Move(moveVector * Time.deltaTime);
+        controller.Move(new Vector3(moveVector.x *  Time.deltaTime, moveVector.y * Time.deltaTime, moveVector.z *  Time.deltaTime));
 
 
         //rotate the character to where it is going.
@@ -159,12 +188,14 @@ public class PlayerMotor : MonoBehaviour {
                 PlayerAudio.PlayOneShot(Squeak2);
                 transform.localScale = largeSize;
                 jumpForce = 7.2f;
+                
             }
             else if (transform.localScale == largeSize)
             {
                 PlayerAudio.PlayOneShot(Squeak2);
                 transform.localScale = smallSize;
                 jumpForce = 5.2f;
+                
             }
         }
     }

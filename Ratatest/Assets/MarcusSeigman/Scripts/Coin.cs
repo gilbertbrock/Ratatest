@@ -5,13 +5,15 @@ using UnityEngine;
 public class Coin : MonoBehaviour {
 
     public AudioClip collectionNoise;
+    private GameObject cheeseChild;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
             gameObject.GetComponent<AudioSource>().Play();
             GameManager.Instance.GetCoin();
-            GetComponent<MeshRenderer>().enabled = false;
+           
+           GetComponentInChildren<Transform>().gameObject.SetActive(false);
             Invoke("Disable", collectionNoise.length);
         }
     }

@@ -26,7 +26,7 @@ public class cameraMotor : MonoBehaviour {
             return;
         if(!isZoomed)
         Invoke("ZoomCamera", 0);
-        transform.position = new Vector3(Player.transform.position.x + offset.x, transform.position.y, Player.transform.position.z + offset.z);        // Vector3 desiredPosition = Player.transform.position + offset;
+        transform.position = new Vector3(Player.transform.position.x + offset.x, offset.y, Player.transform.position.z + offset.z);        // Vector3 desiredPosition = Player.transform.position + offset;
         //desiredPosition.z = 10;
         //transform.position = Vector3.Lerp(transform.position, desiredPosition, Time.deltaTime);
     }

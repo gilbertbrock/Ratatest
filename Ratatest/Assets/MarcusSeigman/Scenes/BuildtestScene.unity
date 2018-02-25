@@ -159,6 +159,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!84 &150069232
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 563
+  m_Height: 351
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &172862254
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,13 +840,13 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.5
+  orthographic size: 2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 1146261232}
+  m_TargetTexture: {fileID: 1120028179}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -1303,7 +1334,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!84 &1146261232
+--- !u!84 &1120028179
 RenderTexture:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -1314,8 +1345,8 @@ RenderTexture:
     Hash: 00000000000000000000000000000000
   m_ForcedFallbackFormat: 4
   m_DownscaleFallback: 0
-  m_Width: 656
-  m_Height: 369
+  m_Width: 563
+  m_Height: 351
   m_AntiAliasing: 1
   m_DepthFormat: 1
   m_ColorFormat: 0
@@ -1376,12 +1407,12 @@ Prefab:
     - target: {fileID: 114713757131967052, guid: 7604a6590e9bc2a499cb1004f3516b53,
         type: 2}
       propertyPath: originalSpeed
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114713757131967052, guid: 7604a6590e9bc2a499cb1004f3516b53,
         type: 2}
       propertyPath: maxSpeed
-      value: 13
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 198173850905815006, guid: 7604a6590e9bc2a499cb1004f3516b53,
         type: 2}
@@ -1417,6 +1448,21 @@ Prefab:
         type: 2}
       propertyPath: lengthInSec
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114713757131967052, guid: 7604a6590e9bc2a499cb1004f3516b53,
+        type: 2}
+      propertyPath: jumpForce
+      value: 5.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114713757131967052, guid: 7604a6590e9bc2a499cb1004f3516b53,
+        type: 2}
+      propertyPath: smallMaxJump
+      value: 1.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 114713757131967052, guid: 7604a6590e9bc2a499cb1004f3516b53,
+        type: 2}
+      propertyPath: bigMaxJump
+      value: 2.23
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7604a6590e9bc2a499cb1004f3516b53, type: 2}
@@ -1686,7 +1732,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.5
+  orthographic size: 2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1731,9 +1777,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 261346550}
   lookAt: {fileID: 188605429}
-  offset: {x: 5, y: 3, z: 4}
+  offset: {x: 5, y: 5, z: 10}
   mainCam: {fileID: 1407041750}
-  camSize: 4
+  camSize: 14
 --- !u!114 &1407041753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1754,6 +1800,7 @@ MonoBehaviour:
   deadCoinText: {fileID: 1049156695}
   mainMenuAnim: {fileID: 1076684182}
   hiscoreText: {fileID: 1016363230}
+  deathCount: 0
 --- !u!95 &1407041754
 Animator:
   serializedVersion: 3
@@ -1782,9 +1829,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a78da3f00f3328541b4526c0b0b5ec5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineThickness: 4.31
-  lineIntensity: 2.69
-  fillAmount: 0.107
+  lineThickness: 1
+  lineIntensity: 0.75
+  fillAmount: 0.015
   lineColor0: {r: 1, g: 0, b: 0, a: 1}
   lineColor1: {r: 1, g: 0.8482759, b: 0, a: 0.7411765}
   lineColor2: {r: 0, g: 0.5882353, b: 1, a: 1}
@@ -1798,8 +1845,8 @@ MonoBehaviour:
   sourceCamera: {fileID: 1407041750}
   outlineCamera: {fileID: 937893805}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 1146261232}
-  extraRenderTexture: {fileID: 1683177227}
+  renderTexture: {fileID: 1120028179}
+  extraRenderTexture: {fileID: 150069232}
 --- !u!1 &1475791372
 GameObject:
   m_ObjectHideFlags: 0
@@ -2130,37 +2177,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0.5, y: 0.5, z: 0.5}
---- !u!84 &1683177227
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 656
-  m_Height: 369
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1816454103
 GameObject:
   m_ObjectHideFlags: 0
@@ -2672,7 +2688,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0f27de9d07daf9c4abdfd505a123e1a4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.186
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
